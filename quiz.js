@@ -109,7 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // Shuffle questions and answers
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -117,7 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Function to start the quiz
     function startQuiz() {
         score = 0;
         currentQuestionIndex = 0;
@@ -132,11 +130,9 @@ document.addEventListener('DOMContentLoaded', () => {
         updateProgressBar();
     }
 
-    // Event listener for starting the quiz
     startButton.addEventListener('click', startQuiz);
     retakeButton.addEventListener('click', startQuiz);
 
-    // Function to display the current question and options
     function showQuestion(question) {
         questionTitle.innerText = `Question ${currentQuestionIndex + 1}: ${question.question}`;
         optionsContainer.innerHTML = '';
@@ -154,7 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
         nextButton.style.display = 'none';
     }
 
-    // Function to handle answer selection
     function selectAnswer(button) {
         if (selectedButton) {
             selectedButton.classList.remove('selected');
@@ -164,12 +159,10 @@ document.addEventListener('DOMContentLoaded', () => {
         submitButton.style.display = 'block';
     }
 
-    // Event listener for submitting the answer
     submitButton.addEventListener('click', () => {
         submitAnswer();
     });
 
-    // Function to handle answer submission and display explanations
     function submitAnswer() {
         const buttons = Array.from(optionsContainer.children);
         buttons.forEach(btn => {
@@ -187,7 +180,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     btn.innerHTML = '✘ ' + btn.innerText;
                 }
             }
-            // Remove any existing explanation
             if (btn.nextSibling && btn.nextSibling.classList && btn.nextSibling.classList.contains('explanation')) {
                 btn.nextSibling.remove();
             }
@@ -207,7 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
         nextButton.style.display = 'block';
     }
 
-    // Event listener for moving to the next question
     nextButton.addEventListener('click', () => {
         currentQuestionIndex++;
         if (currentQuestionIndex < questions.length) {
@@ -219,13 +210,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Function to update the progress bar
     function updateProgressBar() {
         const progressPercentage = ((currentQuestionIndex + 1) / questions.length) * 100;
         progressBar.style.width = `${progressPercentage}%`;
     }
 
-    // Function to display the quiz results
     function displayResults() {
         quizQuestions.style.display = 'none';
         progressContainer.style.display = 'none';
