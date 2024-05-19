@@ -27,7 +27,7 @@ header h1 {
     font-size: 40px; /* Adjusted for better readability on smaller screens */
     margin: 10px auto;
     line-height: 1.2;
-    background: url('images/background.png') no-repeat center center;
+    background: url('background.png') no-repeat center center;
     -webkit-background-clip: text;
     color: transparent;
     background-size: cover;
