@@ -45,21 +45,18 @@
     <section id="quiz-results" class="card" style="display:none;">
         <h2>Quiz Results</h2>
         <p id="result-explanation"></p>
-        <p>Your score indicates your current understanding of your protest rights and how to interact with law enforcement. Use this knowledge to stay safe and exercise your rights responsibly.</p>
         <button id="retake-quiz">Retake Quiz</button>
-        
-        <h3>Feedback</h3>
-        <p>We value your feedback. Please let us know what you found helpful or confusing about the quiz.</p>
-        
-        <h3>Next Steps</h3>
-        <p>Consider joining a rights workshop, participating in peaceful protests, or learning more about your legal protections.</p>
         
         <h3>Share Your Results</h3>
         <p>Help raise awareness by sharing your quiz results on social media.</p>
-        <button onclick="shareOnSocialMedia()">Share on Social Media</button>
+        <button id="share-button" class="button">Share on Social Media</button>
         
-        <h3>Contact Information</h3>
-        <p>For legal support or to get involved with student organizations, contact:</p>
+        <h3>Feedback</h3>
+        <p>We value your feedback. Please let us know what you found helpful or confusing about the quiz.</p>
+        <textarea id="feedback-input" rows="4" cols="50" placeholder="Enter your feedback here..."></textarea>
+        <button id="submit-feedback" class="button">Submit Feedback</button>
+        
+        <h3>Resources</h3>
         <ul>
             <li><a href="https://www.aclu.org/know-your-rights/protesters-rights">ACLU: Protesters' Rights</a></li>
             <li><a href="https://www.nlg.org/know-your-rights/">National Lawyers Guild: Know Your Rights</a></li>
