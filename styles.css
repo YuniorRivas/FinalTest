@@ -254,11 +254,22 @@ p {
     cursor: pointer;
     border: none;
     transition: background-color 0.3s;
+    margin: 5px;
 }
 
 .button:hover {
     background-color: #005a87;
 }
+
+textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
 
 
 @media (max-width: 600px) {
