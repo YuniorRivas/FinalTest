@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             answers: [
                 { text: "Start a chant against the NYPD", correct: false, explanation: "Starting a chant against the NYPD could escalate tensions and doesn't address the specific issue of rights infringement." },
                 { text: "File a formal complaint after the protest", correct: true, explanation: "Filing a formal complaint after the protest is a proper and legally sound method to address perceived rights violations, offering a record and potential investigation without immediate confrontation." },
-                { text: "Confront the officers about it directly", correct: false, explanation: "Confronting the officers directly about rights infringement on the spot can escalate the situation and might not lead to a constructive 
+                { text: "Confront the officers about it directly", correct: false, explanation: "Confronting the officers directly about rights infringement on the spot can escalate the situation and might not lead to a constructive resolution." },
                                 { text: "Encourage others to act against the police", correct: false, explanation: "Encouraging others to act against the police can be construed as inciting a riot or disorderly conduct, potentially leading to criminal charges." }
             ]
         },
