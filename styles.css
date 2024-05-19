@@ -3,7 +3,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Source Sans Pro', sans-serif;
-    background: url('images/background.png') no-repeat center center fixed;
+    background: url('background.png') no-repeat center center fixed;
     background-size: cover;
     color: #333;
     display: flex;
@@ -36,7 +36,7 @@ header h1 {
 footer p {
     font-size: 14px; /* Smaller font size for footer */
     margin: 10px auto;
-    background: url('images/background.png') no-repeat center center;
+    background: url('background.png') no-repeat center center;
     -webkit-background-clip: text;
     color: transparent;
     background-size: cover;
