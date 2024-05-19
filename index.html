@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know Your Rights: Protests</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <h1>Know Your Rights: Protests and the NYPD</h1>
+</header>
+<main>
+    <div id="progress-container" style="display:none;">
+        <div id="progress-bar"></div>
+    </div>
+    <section id="introduction" class="card">
+        <p>Are you informed on what to do when interacting with the police? Test your knowledge now.</p>
+        <button id="start-quiz">Start Quiz</button>
+    </section>
+    <section id="quiz-questions" class="card" style="display:none;">
+        <h2 id="question-title"></h2>
+        <div id="options" class="options"></div>
+        <div class="button-container">
+            <button id="submit-answer" style="display:none;">Submit Answer</button>
+            <button id="next-question" style="display:none;">Next Question</button>
+        </div>
+    </section>
+    <section id="quiz-results" class="card" style="display:none;">
+        <h2>Quiz Results</h2>
+        <p id="result-explanation"></p>
+        <button id="retake-quiz">Retake Quiz</button>
+        <aside>
+            <h2>Additional Resources</h2>
+            <ul>
+                <li><a href="https://example.com">Resource 1</a></li>
+                <li><a href="https://example.com">Resource 2</a></li>
+                <li><a href="https://example.com">Resource 3</a></li>
+            </ul>
+        </aside>
+    </section>
+</main>
+<footer>
+    <p>This interactive quiz is for educational purposes only, not legal advice. 2024 Yunior Rivas Garcia</p>
+</footer>
+<script defer src="quiz.js"></script>
+</body>
+</html>
