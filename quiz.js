@@ -219,32 +219,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function displayResults() {
-        quizQuestions.style.display = 'none';
-        progressContainer.style.display = 'none';
-        resultsContainer.style.display = 'block';
-        let scoreMessage;
-        if (score === questions.length) {
-            scoreMessage = 'Excellent! You know your rights very well.';
-        } else if (score >= questions.length * 0.7) {
-            scoreMessage = 'Good job! You have a good understanding of your rights.';
-        } else if (score >= questions.length * 0.5) {
-            scoreMessage = 'Not bad! But there is room for improvement.';
-        } else {
-            scoreMessage = 'It looks like you need to learn more about your rights. Please review the resources below.';
-        }
-        resultExplanation.innerHTML = `You scored ${score} out of ${questions.length}. ${scoreMessage}`;
-        feedbackContainer.style.display = 'block';
-    }
+    quizQuestions.style.display = 'none';
+    progressContainer.style.display = 'none';
+    resultsContainer.style.display = 'block';
 
-    submitFeedbackButton.addEventListener('click', () => {
-        const feedback = feedbackInput.value;
-        if (feedback) {
-            alert('Thank you for your feedback!');
-            feedbackInput.value = '';
-        } else {
-            alert('Please enter your feedback before submitting.');
-        }
-    });
+    let scoreMessage;
+    if (score === questions.length) {
+        scoreMessage = 'Excellent! You know your rights very well. Please review the resources below and stay safe while exercising your right to protest.';
+    } else if (score >= questions.length * 0.7) {
+        scoreMessage = 'Good job! You have a good understanding of your rights. Please review the resources below and stay safe while exercising your right to protest.';
+    } else if (score >= questions.length * 0.5) {
+        scoreMessage = 'Not bad! But there is room for improvement. Please review the resources below and stay safe while exercising your right to protest.';
+    } else {
+        scoreMessage = 'It looks like you may need to learn more about your rights. Please review the resources below and stay safe while exercising your right to protest.';
+    }
+    resultExplanation.innerHTML = `You scored ${score} out of ${questions.length}. ${scoreMessage}`;
+    feedbackContainer.style.display = 'block';
+}
 
     function shareOnSocialMedia() {
         const url = window.location.href;
