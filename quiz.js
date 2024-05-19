@@ -94,8 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
             answers: [
                 { text: "Start a chant against the NYPD", correct: false, explanation: "Starting a chant against the NYPD could escalate tensions and doesn't address the specific issue of rights infringement." },
                 { text: "File a formal complaint after the protest", correct: true, explanation: "Filing a formal complaint after the protest is a proper and legally sound method to address perceived rights violations, offering a record and potential investigation without immediate confrontation." },
-                { text: "Confront the officers about it directly", correct: false, explanation: "Confronting the officers directly about rights infringement on the spot can escalate the situation and might not lead to a constructive resolution." },
-                { text: "Encourage others to act against the police", correct: false, explanation: "Encouraging others to act against the police can be construed as inciting a riot or disorderly conduct, potentially leading to criminal charges." }
+                { text: "Confront the officers about it directly", correct: false, explanation: "Confronting the officers directly about rights infringement on the spot can escalate the situation and might not lead to a constructive 
+                                { text: "Encourage others to act against the police", correct: false, explanation: "Encouraging others to act against the police can be construed as inciting a riot or disorderly conduct, potentially leading to criminal charges." }
             ]
         },
         {
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { text: "Resist the arrest to show your disagreement", correct: false, explanation: "Resisting arrest could lead to additional charges such as obstruction of justice or assault on a police officer." },
                 { text: "Ask for a lawyer and remain silent", correct: true, explanation: "Asking for a lawyer and remaining silent is your right under the Fifth Amendment, which protects against self-incrimination, and the Sixth Amendment, which ensures the right to legal representation. This action minimizes the risk of inadvertently providing information that could be used against you in court." },
                 { text: "Tell the police everything to clear the misunderstanding", correct: false, explanation: "Explaining your actions without a lawyer present can inadvertently lead to self-incrimination." },
-                { text: "Try to escape from the police custody", correct: false, explanation: "Trying to escape from police custody is a serious offense that could result in charges such as escaping arrest, and it poses significant safety risks." }
+                { text: "Try to escape from police custody", correct: false, explanation: "Trying to escape from police custody is a serious offense that could result in charges such as escaping arrest, and it poses significant safety risks." }
             ]
         }
     ];
@@ -221,4 +221,11 @@ document.addEventListener('DOMContentLoaded', () => {
         resultsContainer.style.display = 'block';
         resultExplanation.innerHTML = `You scored ${score} out of ${questions.length}.`;
     }
+
+    function shareOnSocialMedia() {
+        const url = window.location.href;
+        const text = "I just took a quiz on knowing your rights during protests! Check it out: " + url;
+        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
+    }
 });
+
