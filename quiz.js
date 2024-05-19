@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             answers: [
                 { text: "Start a chant against the NYPD", correct: false, explanation: "Starting a chant against the NYPD could escalate tensions and doesn't address the specific issue of rights infringement." },
                 { text: "File a formal complaint after the protest", correct: true, explanation: "Filing a formal complaint after the protest is a proper and legally sound method to address perceived rights violations, offering a record and potential investigation without immediate confrontation." },
-                                { text: "Confront the officers about it directly", correct: false, explanation: "Confronting the officers directly about rights infringement on the spot can escalate the situation and might not lead to a constructive resolution." },
+                { text: "Confront the officers about it directly", correct: false, explanation: "Confronting the officers directly about rights infringement on the spot can escalate the situation and might not lead to a constructive resolution." },
                 { text: "Encourage others to act against the police", correct: false, explanation: "Encouraging others to act against the police can be construed as inciting a riot or disorderly conduct, potentially leading to criminal charges." }
             ]
         },
@@ -219,29 +219,68 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function displayResults() {
-    quizQuestions.style.display = 'none';
-    progressContainer.style.display = 'none';
-    resultsContainer.style.display = 'block';
+        quizQuestions.style.display = 'none';
+        progressContainer.style.display = 'none';
+        resultsContainer.style.display = 'block';
 
-    let scoreMessage;
-    if (score === questions.length) {
-        scoreMessage = 'Excellent! You know your rights very well. Please review the resources below and stay safe while exercising your right to protest.';
-    } else if (score >= questions.length * 0.7) {
-        scoreMessage = 'Good job! You have a good understanding of your rights. Please review the resources below and stay safe while exercising your right to protest.';
-    } else if (score >= questions.length * 0.5) {
-        scoreMessage = 'Not bad! But there is room for improvement. Please review the resources below and stay safe while exercising your right to protest.';
-    } else {
-        scoreMessage = 'It looks like you may need to learn more about your rights. Please review the resources below and stay safe while exercising your right to protest.';
+        let scoreMessage;
+        if (score === questions.length) {
+            scoreMessage = 'Excellent! You know your rights very well. Please review the resources below and stay safe while exercising your right to protest.';
+        } else if (score >= questions.length * 0.7) {
+            scoreMessage = 'Good job! You have a good understanding of your rights. Please review the resources below and stay safe while exercising your right to protest.';
+        } else if (score >= questions.length * 0.5) {
+            scoreMessage = 'Not bad! But there is room for improvement. Please review the resources below and stay safe while exercising your right to protest.';
+        } else {
+            scoreMessage = 'It looks like you may need to learn more about your rights. Please review the resources below and stay safe while exercising your right to protest.';
+        }
+        resultExplanation.innerHTML = `You scored ${score} out of ${questions.length}. ${scoreMessage}`;
+        feedbackContainer.style.display = 'block';
     }
-    resultExplanation.innerHTML = `You scored ${score} out of ${questions.length}. ${scoreMessage}`;
-    feedbackContainer.style.display = 'block';
-}
 
-    function shareOnSocialMedia() {
+    submitFeedbackButton.addEventListener('click', () => {
+        const feedback = feedbackInput.value;
+        if (feedback) {
+            // Handle the feedback (e.g., send it to a server or log it)
+            console.log('Feedback submitted:', feedback); // Replace with actual handling code
+            alert('Thank you for your feedback!');
+            feedbackInput.value = '';
+        } else {
+            alert('Please enter your feedback before submitting.');
+        }
+    });
+
+    function shareOnSocialMedia(platform) {
         const url = window.location.href;
         const text = "I just took a quiz on knowing your rights during protests! Check it out: " + url;
-        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
+        let shareUrl;
+
+        switch (platform) {
+            case 'twitter':
+                shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+                break;
+            case 'facebook':
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+                break;
+            case 'whatsapp':
+                shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+                break;
+            case 'email':
+                shareUrl = `mailto:?subject=Know Your Rights Quiz&body=${encodeURIComponent(text)}`;
+                break;
+            case 'sms':
+                shareUrl = `sms:?body=${encodeURIComponent(text)}`;
+                break;
+            default:
+                return;
+        }
+
+        window.open(shareUrl, '_blank');
     }
 
-    document.getElementById('share-button').addEventListener('click', shareOnSocialMedia);
+    document.getElementById('share-twitter').addEventListener('click', () => shareOnSocialMedia('twitter'));
+    document.getElementById('share-facebook').addEventListener('click', () => shareOnSocialMedia('facebook'));
+    document.getElementById('share-whatsapp').addEventListener('click', () => shareOnSocialMedia('whatsapp'));
+    document.getElementById('share-email').addEventListener('click', () => shareOnSocialMedia('email'));
+    document.getElementById('share-sms').addEventListener('click', () => shareOnSocialMedia('sms'));
 });
+
