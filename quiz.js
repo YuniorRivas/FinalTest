@@ -228,4 +228,3 @@ document.addEventListener('DOMContentLoaded', () => {
         window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
     }
 });
-
