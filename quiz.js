@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultExplanation = document.getElementById('result-explanation');
     const progressBar = document.getElementById('progress-bar');
     const progressContainer = document.getElementById('progress-container');
+    const feedbackContainer = document.getElementById('feedback-container');
+    const feedbackInput = document.getElementById('feedback-input');
+    const submitFeedbackButton = document.getElementById('submit-feedback');
 
     let currentQuestionIndex = 0;
     let score = 0;
@@ -94,8 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
             answers: [
                 { text: "Start a chant against the NYPD", correct: false, explanation: "Starting a chant against the NYPD could escalate tensions and doesn't address the specific issue of rights infringement." },
                 { text: "File a formal complaint after the protest", correct: true, explanation: "Filing a formal complaint after the protest is a proper and legally sound method to address perceived rights violations, offering a record and potential investigation without immediate confrontation." },
-                { text: "Confront the officers about it directly", correct: false, explanation: "Confronting the officers directly about rights infringement on the spot can escalate the situation and might not lead to a constructive resolution." },
-                                { text: "Encourage others to act against the police", correct: false, explanation: "Encouraging others to act against the police can be construed as inciting a riot or disorderly conduct, potentially leading to criminal charges." }
+                                { text: "Confront the officers about it directly", correct: false, explanation: "Confronting the officers directly about rights infringement on the spot can escalate the situation and might not lead to a constructive resolution." },
+                { text: "Encourage others to act against the police", correct: false, explanation: "Encouraging others to act against the police can be construed as inciting a riot or disorderly conduct, potentially leading to criminal charges." }
             ]
         },
         {
@@ -219,12 +222,35 @@ document.addEventListener('DOMContentLoaded', () => {
         quizQuestions.style.display = 'none';
         progressContainer.style.display = 'none';
         resultsContainer.style.display = 'block';
-        resultExplanation.innerHTML = `You scored ${score} out of ${questions.length}.`;
+        let scoreMessage;
+        if (score === questions.length) {
+            scoreMessage = 'Excellent! You know your rights very well.';
+        } else if (score >= questions.length * 0.7) {
+            scoreMessage = 'Good job! You have a good understanding of your rights.';
+        } else if (score >= questions.length * 0.5) {
+            scoreMessage = 'Not bad! But there is room for improvement.';
+        } else {
+            scoreMessage = 'It looks like you need to learn more about your rights. Please review the resources below.';
+        }
+        resultExplanation.innerHTML = `You scored ${score} out of ${questions.length}. ${scoreMessage}`;
+        feedbackContainer.style.display = 'block';
     }
+
+    submitFeedbackButton.addEventListener('click', () => {
+        const feedback = feedbackInput.value;
+        if (feedback) {
+            alert('Thank you for your feedback!');
+            feedbackInput.value = '';
+        } else {
+            alert('Please enter your feedback before submitting.');
+        }
+    });
 
     function shareOnSocialMedia() {
         const url = window.location.href;
         const text = "I just took a quiz on knowing your rights during protests! Check it out: " + url;
         window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
     }
+
+    document.getElementById('share-button').addEventListener('click', shareOnSocialMedia);
 });
